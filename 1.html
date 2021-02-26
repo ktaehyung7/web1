@@ -4,30 +4,34 @@
     <title>Elements of AI</title>
     <meta charset="utf-8">
     <script>
+      function linksSetColor(color) {
+        var alist = document.querySelectorAll('a');
+        var i=0;
+        while(i < alist.length) {
+          alist[i].style.color = color;
+          i=i+1;
+        }
+      }
+      function bodySetColor(color) {
+        target.style.color = color;
+      }
+      function bodyBackgroundColor(color) {
+        target.style.backgroundColor = color;
+      }
       function nightDayHandler(self) {
         var target = document.querySelector('body');
         if(self.value === 'night') {
-            target.style.backgroundColor = 'black';
-            target.style.color = 'white';
+            bodyBackgroundColor('black');
+            bodySetColor('white');
             self.value = 'day';
 
-            var alist = document.querySelectorAll('a');
-            var i=0;
-            while(i < alist.length) {
-              alist[i].style.color = 'powderblue';
-              i=i+1;
-            }
+            linksSetColor('powderblue');
         } else {
-            target.style.backgroundColor = 'white';
-            target.style.color = 'black';
+            bodyBackgroundColor('white');
+            bodySetColor('black');
             self.value = 'night';
 
-            var alist = document.querySelectorAll('a');
-            var i=0;
-            while(i < alist.length) {
-              alist[i].style.color = 'blue';
-              i=i+1;
-            }
+            linksSetColor('blue');
         }
       }
     </script>
