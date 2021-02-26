@@ -15,8 +15,8 @@
                                                 
       //Asynchronous
       fetch('html').then(function(response){
-        if(response.status == '404'){
-          alert('Not found')
+        if(response.status == '200'){
+          alert('Success')
         }
       });
       console.log(1);
