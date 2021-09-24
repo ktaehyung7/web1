@@ -26,8 +26,20 @@
         })
       });
       ">HTML</a></li>
-    <li><a href="2.html">CSS</a></li>
-    <li><a href="3.html">Javascript</a></li>
+    <li><a onclick="
+      fetch('css').then(function(response) {
+        response.text().then(function(text) {
+          document.querySelector('article').innerHTML = text;
+        })
+      });
+      ">CSS</a></li>
+    <li><a onclick="
+      fetch('javascript').then(function(response) {
+        response.text().then(function(text) {
+          document.querySelector('article').innerHTML = text;
+        })
+      });
+      ">Javascript</a></li>
   </ol>
   <article>
 
