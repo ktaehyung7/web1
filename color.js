@@ -16,8 +16,8 @@ var Body = {
     $('body').css('color', color);
   },
   setBackgroundColor:function(color) {
-    document.querySelector('body').style.backgroundColor = color;
-    //$('body').css('backgroundColor', color);
+    //document.querySelector('body').style.backgroundColor = color;
+    $('body').css('backgroundColor', color);
   }
 }
 
