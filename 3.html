@@ -6,6 +6,23 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9EP39M1MRQ"></script>
   <script>
+    function nightDayHandler(self) {
+      var target = document.querySelector('body');
+      if(self.value === 'night') {
+        target.style.backgroundColor = 'black';
+        target.style.color = 'white';
+        self.value = 'day';
+        var alist = document.querySelectorAll('a');
+        var i=0;
+        while(i < alist.length) {
+          alist[i].style.color = 'powderblue';
+          i = i+1;
+        }
+      } else {
+        
+      }
+    }
+    
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -15,6 +32,7 @@
 </head>
 <body>
   <h1><a href="index.html">WORLD WIDE WEB</a></h1>
+  <input id="night_day" type="button" value="night" onclick="nightDayHandler(this)">
   <div id="grid">
     <ol>
       <li><a href="1.html">HTML</a></li>
