@@ -9,43 +9,41 @@
 <body>
   <h1><a href="#!welcome">WORLD WIDE WEB</a></h1>
   <input id="night_day" type="button" value="night" onclick="nightDayHandler(this)">
-  <div id="grid">
-    <ol id="nav">
-      
-    </ol>
-    <article>
-      
-    </article>
-    <script>
-      function fetchPage(name) {
-        fetch(name).then(function(response) {
-          response.text().then(function(text) {
-            document.querySelector('article').innerHTML = text;
-          })
-        });
-      }
-      if(location.hash) {
-        fetchPage(location.hash);
-      } else {
-        fetchPage('Welcome'); 
-      }
-      
-      fetch('list').then(function(response) {
+  <ol id="nav">
+
+  </ol>
+  <article>
+
+  </article>
+  <script>
+    function fetchPage(name) {
+      fetch(name).then(function(response) {
         response.text().then(function(text) {
-          var items = text.split(',');
-          var i=0;
-          var tags = '';
-          while(i<items.length) {
-            var item = items[i];
-            item = item.trim();
-            var tag = '<li><a href="#!'+item+'" onclick="fetchPage(\''+item+'\')">'+item+'</a></li>';
-            tags = tags + tag;
-            i = i+1;
-          }
-          document.querySelector('#nav').innerHTML = text;          
+          document.querySelector('article').innerHTML = text;
         })
       });
-      
-    </script>
-  </div>
+    }
+    if(location.hash) {
+      fetchPage(location.hash.substr(2));
+    } else {
+      fetchPage('Welcome'); 
+    }
+
+    fetch('list').then(function(response) {
+      response.text().then(function(text) {
+        var items = text.split(',');
+        var i=0;
+        var tags = '';
+        while(i<items.length) {
+          var item = items[i];
+          item = item.trim();
+          var tag = '<li><a href="#!'+item+'" onclick="fetchPage(\''+item+'\')">'+item+'</a></li>';
+          tags = tags + tag;
+          i = i+1;
+        }
+        document.querySelector('#nav').innerHTML = text;          
+      })
+    });
+
+  </script>  
 </body>
